@@ -1,3 +1,3 @@
 # Projects
 
-This includes python projects for Machine Learning
+This includes Python projects for Machine Learning!
