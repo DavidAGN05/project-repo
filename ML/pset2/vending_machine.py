@@ -48,7 +48,7 @@ def test_inputs(user_input):
     characters = user_input.split()
     if is_even(len(characters)):
         for char in characters: ## check
-            if char.isdigit() == True:
+            if char.isdigit() == True: # use 'try' and 'except'
                 converted_num = int(char)
                 if 2 >= converted_num >= 0:
                     return True
@@ -60,6 +60,7 @@ def test_inputs(user_input):
                 return False
     else:
         print("incorrect amount of inputs")
+        return False
     
             
 
@@ -72,9 +73,18 @@ def splitting_numbers(user_input):
     seperated_input = []
     for i, char in enumerate(user_input.split()):
         if is_even(i):
-            seperated_input.append(int(char)) # Convert the split strings to integers
+            try:
+                seperated_input.append(int(char)) # Convert the split strings to integers
+            except ValueError:
+                print("malformed expression")
+                exit(0)
         else:
-            seperated_input.append(float(char))
+            try:
+                seperated_input.append(float(char)) # Convert the split strings to integers
+            except ValueError:
+                print("malformed expression")
+                exit(0)
+            
         ### HAS TO BE EVERY OTHER NUMBER, SAME WITH MONEY BUT CONVERT TO FLOAT
     return seperated_input
 
